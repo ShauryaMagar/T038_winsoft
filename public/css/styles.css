@@ -1,0 +1,67 @@
+.circle {
+    position: absolute;
+    text-align: center;
+    background-color: white;
+    border-color: black;
+    border-radius: 50%;
+    border: 2px solid;
+    height: 30px;
+    width: 30px;
+}
+
+.diagram {
+    position: absolute;
+    left: 500px;
+    top: 5%;
+}
+
+#B {
+    left: 100px;
+}
+
+#E {
+    left: 200px;
+}
+
+#I {
+    left: 400px;
+}
+
+#A {
+    top: 100px;
+}
+
+#C {
+    top: 100px;
+    left: 100px;
+}
+
+#F {
+    top: 100px;
+    left: 200px;
+}
+
+#H {
+    top: 100px;
+    left: 300px;
+}
+
+#K {
+    top: 100px;
+    left: 500px;
+}
+
+#D {
+    top: 200px;
+    left: 100px;
+}
+
+#G {
+    top: 200px;
+    left: 200px;
+}
+
+#J {
+    top: 200px;
+    left: 400px;
+}
