@@ -1,6 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const mongoose = require('mongoose');
+const session = require("express-session");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
+
+
 
 const app = express();
 
@@ -11,12 +17,94 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-app.get('/', function(req,res){
-    res.render('home');
+app.use(session({
+    secret: "Sempiternal is okaybest",
+    resave: false,
+    saveUninitialized: false,
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+mongoose.connect("mongodb://localhost:27017/winsoftDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+mongoose.set("useCreateIndex", true);
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    username: String,
+    password: String,
+});
+
+userSchema.plugin(passportLocalMongoose);
+
+const User = new mongoose.model("User", userSchema);
+
+passport.use(User.createStrategy());
+
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
+
+// app.get("/register", function (req, res) {
+//     User.register({
+//         username: "admin@indianarmy.ac.in",
+//         name: "admin"
+//     }, "12345", function (err, user) {
+//         if (err) {
+//             console.log(err);
+//             res.redirect("/register");
+//         } else {
+//             passport.authenticate("local")(req, res, function () {
+//                 console.log(user);
+//             });
+//         }
+//     });
+// });
+
+
+app.get("/", function (req, res) {
+    res.render("signin");
 });
 
 app.post("/", function (req, res) {
+    const user = new User({
+        username: req.body.username,
+        password: req.body.password
+    });
+    req.login(user, function (err) {
+        if (err) {
+            console.log(err);
+
+        } else {
+            passport.authenticate("local")(req, res, function () {
+                res.redirect('/home');
+                console.log(user);
+            });
+        }
+    })
+});
+
+
+
+app.get('/home', function(req,res){
+    if (req.isAuthenticated()){
+        res.render('home');
+    } else{
+        res.redirect("/");
+    }
+
+});
+
+app.post("/home", function (req, res) {
     var encryptedMessage = req.body.enMessage;
     var key = (req.body.key).toUpperCase();
     key_length = key.length;
@@ -213,6 +301,10 @@ app.post("/", function (req, res) {
     })
 })
     
+app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+});
 
 
 app.listen(3000, function () {

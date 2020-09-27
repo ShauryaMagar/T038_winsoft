@@ -1,18 +1,40 @@
+hr {
+    width: 75%;
+    border: solid 1px;
+    background-color: white;
+}
+
 .circle {
     position: absolute;
     text-align: center;
     background-color: white;
-    border-color: black;
+    color: black;
     border-radius: 50%;
-    border: 2px solid;
+    border: 4px solid;
     height: 30px;
     width: 30px;
 }
+
+.circle-legend {
+    text-align: center;
+    background-color: white;
+    border-color: black;
+    border-radius: 50%;
+    border: 4px solid;
+    height: 30px;
+    width: 30px;
+}
+
 body {
-    background-image: url(background.jpg);
-    background-size: 100% 100%;
+    color: white;
+    background-image: url("/c3.jpg");
+    height: 100%;
+    width: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    font-family: 'Montserrat',sans-serif;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 #input {
@@ -38,9 +60,15 @@ body {
 }
 
 .diagram {
-    position: absolute;
-    left: 500px;
-    top: 100px;
+    position: relative;
+    top: 50px;
+    margin-left: 31%;
+}
+
+.message {
+    margin-top: 1%;
+    text-align: center;
+    text-shadow: 1px 1px 2px grey;
 }
 
 #B {
@@ -120,6 +148,13 @@ body {
     margin-left: -80px;
 }
 
+.message-page{
+    background: #498597;
+    background: -webkit-linear-gradient(top, #498597, #F3F3F2);
+    background: -moz-linear-gradient(top, #498597, #F3F3F2);
+    background: linear-gradient(to bottom, #498597, #F3F3F2);
+}
+
 /* Popup arrow */
 .popup .popuptext::after {
     content: "";
@@ -158,4 +193,39 @@ body {
     to {
         opacity: 1;
     }
+}
+
+.legend-title {
+    margin-left: 13%;
+    position: relative;
+    bottom: 50%;
+    color: black;
+    font-size: 1.3rem;
+}
+
+.top-container {
+    padding: 30px;
+    text-align: center;
+    background-image: linear-gradient(to right, #1b262c, #1d2d50);
+}
+.top-container-message {
+    padding: 30px;
+    text-align: center;
+    /* background-image: linear-gradient(to right, #1b262c, #1d2d50); */
+    background-color: black;
+}
+
+#input {
+    padding: 150px 350px 150px 350px;
+}
+
+h1 {
+    background: -webkit-linear-gradient(white, grey);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#input-section {
+    padding: 17% 35%;
+    text-align: center;
 }

@@ -1,95 +1,114 @@
 <%- include('partials/header') %>
-        <div style="text-align: center;margin-top: 25px; "  class="container-fluid container">
-             <h1>
-                TITLE
-            </h1>
-        </div>
-        <div class="diagram">
-            <%  for(var i=0;i<nodes.length;i++){  %>
-              <div class="circle" style=" background-color: #ff414d;"
-                  id=<%=nodes[i]%>>
-                  <div class=" popup"  onclick="myFunction('<%=enemyPlaceName[i]%>')">
-                  <%=nodes[i]%> 
-                    <span class="popuptext" id='<%=enemyPlaceName[i]%>'><%=enemyPlaceName[i]%></span></div>
-                    <div style="margin-top: 10px; margin-left: -12px;">  (<%= cordPos[nodes[i]] %>) </div>
-                </div>
-                
-             <%  }      %>
-           <%   for(var i=0;i<safe.length ;i++){  %>
-            <div class="circle" style="background-color: #b2ebf2;" id=<%=safe[i]%>>
-               <div class="popup" onclick="myFunction('<%=safePlaceName[i]%>')">
-           
-             <%=safe[i]%>
-                 <span class="popuptext" id="<%=safePlaceName[i]%>"><%=safePlaceName[i]%></span></div>
-                 <div style="margin-top: 10px; margin-left: -12px;">(<%= cordPos[safe[i]] %>)</div>
-        </div>
-           <%  }     %>
-           <div class="popup" onclick="myFunction3()">
-            <div class="circle" style="background-color: #79d70f;" id=<%=pos%>>
-              <%=pos%>
-                  <span class="popuptext" id="myPopup3">
-                      <%=strategicPosition%>
-                  </span>
-              </div>
-            </div>
+       <div class="message-page">
 
-            <svg style="width:615px; height:250px;">
-                <line x1="15" y1="115" x2="115" y2="15" style="stroke:black;stroke-width:2" />
-                <line x1="115" y1="15" x2="215" y2="15" style="stroke:black;stroke-width:2" />
-                <line x1="15" y1="115" x2="115" y2="115" style="stroke:black;stroke-width:2" />
-                <line x1="115" y1="115" x2="215" y2="15" style="stroke:black;stroke-width:2" />
-                <line x1="115" y1="115" x2="215" y2="115" style="stroke:black;stroke-width:2" />
-                <line x1="15" y1="115" x2="115" y2="215" style="stroke:black;stroke-width:2" />
-                <line x1="115" y1="215" x2="215" y2="115" style="stroke:black;stroke-width:2" />
-                <line x1="115" y1="215" x2="215" y2="215" style="stroke:black;stroke-width:2" />
-                <line x1="215" y1="215" x2="315" y2="115" style="stroke:black;stroke-width:2" />
-                <line x1="215" y1="15" x2="315" y2="115" style="stroke:black;stroke-width:2" />
-                <line x1="315" y1="115" x2="415" y2="15" style="stroke:black;stroke-width:2" />
-                <line x1="315" y1="115" x2="415" y2="215" style="stroke:black;stroke-width:2" />
-                <line x1="415" y1="215" x2="515" y2="115" style="stroke:black;stroke-width:2" />
-                <line x1="415" y1="15" x2="515" y2="115" style="stroke:black;stroke-width:2" />
-            </svg>
-        </div>
-        <div style="margin-top: 300px;" class="container-fluid container">
-            <h4>Legend</h4>
-            <div class="row">
-                <div class="col-lg-4">
-                   <div class="circle" style="background-color: #ff414d;"></div><div style="margin-left: 40px;">Enemy Position</div>
+           <div class="top-container-message">
+               <h1 style="color:white;  text-shadow: 1px 1px 2px grey;"><strong>DESIRED POSITION</strong></h1>
+
+           </div>
+
+           <div class="message">
+               <h4 style="color:black;"><strong>Decrypted Message:</strong></h4>
+               <h4>"<%=message%>"</h4>
+               <br>
+               <h4 style="color:black;"> <strong>Strategic Position:</strong></h4>
+               <h4><%=strategicPosition%></h4>
+
+               <br>
+               <h4 style="color:black;"><strong>Strategic Coordinates:</strong></h4>
+               <h4> <%=pos%> [<%=coord%>] <br></h4>
+           </div>
+           <hr>
+           <div class="diagram">
+               <%  for(var i=0;i<nodes.length;i++){  %>
+               <div class="circle" style=" background-color: #ff414d; border-color:#931a25;" id=<%=nodes[i]%>>
+                   <div class=" popup" onclick="myFunction('<%=enemyPlaceName[i]%>')">
+                       <%=nodes[i]%>
+                       <span class="popuptext" id='<%=enemyPlaceName[i]%>'><%=enemyPlaceName[i]%></span></div>
+                   <div style="margin-top: 10px; margin-left: -12px; color:white;"> (<%= cordPos[nodes[i]] %>) </div>
+               </div>
+
+               <%  }      %>
+               <%   for(var i=0;i<safe.length ;i++){  %>
+               <div class="circle" style="background-color: #b2ebf2; border-color:#40a8c4;" id=<%=safe[i]%>>
+                   <div class="popup" onclick="myFunction('<%=safePlaceName[i]%>')">
+
+                       <%=safe[i]%>
+                       <span class="popuptext" id="<%=safePlaceName[i]%>"><%=safePlaceName[i]%></span></div>
+                   <div style="margin-top: 10px; margin-left: -12px; color:white;">(<%= cordPos[safe[i]] %>)</div>
+               </div>
+               <%  }     %>
+               <div class="popup" onclick="myFunction3()">
+                   <div class="circle" style="background-color: #79d70f;border-color:#335d2d;" id=<%=pos%>>
+                       <%=pos%>
+                       <span class="popuptext" id="myPopup3">
+                           <%=strategicPosition%>
+                       </span>
+                   </div>
+               </div>
+
+               <svg style="width:615px; height:250px; ">
+                   <line x1="15" y1="115" x2="115" y2="15" style="stroke:white;stroke-width:2" />
+                   <line x1="115" y1="15" x2="215" y2="15" style="stroke:white;stroke-width:2" />
+                   <line x1="15" y1="115" x2="115" y2="115" style="stroke:white;stroke-width:2" />
+                   <line x1="115" y1="115" x2="215" y2="15" style="stroke:white;stroke-width:2" />
+                   <line x1="115" y1="115" x2="215" y2="115" style="stroke:white;stroke-width:2" />
+                   <line x1="15" y1="115" x2="115" y2="215" style="stroke:white;stroke-width:2" />
+                   <line x1="115" y1="215" x2="215" y2="115" style="stroke:white;stroke-width:2" />
+                   <line x1="115" y1="215" x2="215" y2="215" style="stroke:white;stroke-width:2" />
+                   <line x1="215" y1="215" x2="315" y2="115" style="stroke:white;stroke-width:2" />
+                   <line x1="215" y1="15" x2="315" y2="115" style="stroke:white;stroke-width:2" />
+                   <line x1="315" y1="115" x2="415" y2="15" style="stroke:white;stroke-width:2" />
+                   <line x1="315" y1="115" x2="415" y2="215" style="stroke:white;stroke-width:2" />
+                   <line x1="415" y1="215" x2="515" y2="115" style="stroke:white;stroke-width:2" />
+                   <line x1="415" y1="15" x2="515" y2="115" style="stroke:white;stroke-width:2" />
+               </svg>
+           </div>
+
+           <br>
+
+           <div style="margin-top: 55px;" class="container-fluid container">
+               <h4 style="color:black; text-shadow: 1px 1px 2px grey;"><strong>Legend:</strong></h4>
+               <br>
+               <div class="row">
+                   <div class="col-lg-4">
+                       <div class="circle-legend" style="background-color: #ff414d; border-color:#931a25; "></div>
+                       <div class="legend-title">Enemy Position</div>
+                   </div>
+                   <div class="col-lg-4">
+                       <div class="circle-legend" style="background-color: #b2ebf2; border-color:#40a8c4; "></div>
+                       <div class="legend-title">Safe Place</div>
+                   </div>
+                   <div class="col-lg-4">
+                       <div class="circle-legend" style="background-color: #79d70f;border-color:#335d2d"></div>
+                       <div class="legend-title">Position</div>
+                   </div>
+               </div>
+             <div style="padding: 25px;">
+                <div style="text-align: center;">
+                   <a href="/home"><button class="btn btn-dark submit-button"> Try Another code </button></a>
                 </div>
-                <div class="col-lg-4">
-                     <div class="circle" style="background-color: #b2ebf2;"></div><div style="margin-left: 40px;">Safe Place</div>
-                </div>
-                <div class="col-lg-4">
-                     <div class="circle" style="background-color: #79d70f;"></div><div style="margin-left: 40px;">Position</div>
-                </div>
-            </div>
-             
-            
+               
+
+             </div>
               
-        </div>
-        <div style="margin-top: 350px; margin-left: 150px; margin-right: 150px;" >
-            <h3>
-               <%=pos%>
-            </h3>  <br>
-            <h3>
-               <%=coord%> <br>
-               <%=message%>
-            </h3>
-            
-            
-        </div>
-     <script>
-         function myFunction(n) {
-             var popup = document.getElementById(n);
-             popup.classList.toggle("show");
-         }
-         
-         
-         function myFunction3() {
-         var popup = document.getElementById("myPopup3");
-         popup.classList.toggle("show");
-         }
+           </div>
 
-     </script>
-    </body>
-</html>
+
+
+
+
+           <script>
+               function myFunction(n) {
+                   var popup = document.getElementById(n);
+                   popup.classList.toggle("show");
+               }
+
+
+               function myFunction3() {
+                   var popup = document.getElementById("myPopup3");
+                   popup.classList.toggle("show");
+               }
+           </script>
+           </body>
+
+           </html>
