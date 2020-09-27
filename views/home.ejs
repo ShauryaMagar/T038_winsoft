@@ -1,11 +1,24 @@
 <%- include('partials/header') %>
-        <form action="/" method="post">
-            <input type="text" id="inputEmail"  placeholder="Encrypted" name="key" required
-                autofocus><br>
-            <input type="text" id="inputPassword"  placeholder="key" name="enMessage" required><br>
-            <div class="signin-button">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </body>
-</html>
+  <section id="input">
+      <form action="/" method="POST">
+          <div class="input-group key">
+              <div class="input-group-prepend">
+              </div>
+              <input type="text" class="form-control" placeholder="Enter encryption key" name="key" aria-label="encryption key">
+          </div>
+          <div class="input-group code">
+              <div class="input-group-prepend">
+
+              </div>
+              <input type="text" class="form-control" placeholder="Enter encrypted code" name="enMessage"
+                  aria-label="encrypted code">
+          </div>
+          <button type="submit" class="btn btn-light submit-button">submit</button>
+    
+    </form>
+      
+  </section>
+
+  </body>
+
+  </html>

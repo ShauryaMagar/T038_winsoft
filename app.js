@@ -108,6 +108,31 @@ app.post("/", function (req, res) {
         "pensi": "J",
         "marsimik": "K"
     }
+    var placePosition = {
+
+         "A": "Khardung La",
+
+         "B": "Lachulung La",
+
+        "C" : "Sasser Pass",
+
+        "D": "Gyong La",
+
+        "E": "Sia La",
+
+        "F": "Zoji La",
+
+        "G": "Indira Col",
+
+        "H":"Rezang La" ,
+
+        "I": "Tanglang La",
+
+        "J": "Pensi",
+
+        "K": "Marsimik",
+
+    }
 
     var cordPos = {
         'A': [0, 10],
@@ -163,12 +188,28 @@ app.post("/", function (req, res) {
     var safe = map.filter(function (val) {
         return nodes.indexOf(val) == -1;
     });
+    var safePlaceName=[];
+    for (var i = 0; i < safe.length; i++) {
+        safePlaceName.push(placePosition[safe[i]]);
+    }
+    var enemyPlaceName=[];
+    for(var i=0;i<nodes.length;i++){
+        enemyPlaceName.push(placePosition[nodes[i]]);
+    }
+    var strategicPosition= placePosition[stratpose];
+    console.log(safePlaceName);
+    console.log(enemyPlaceName);
+    console.log(strategicPosition);
     res.render("message", {
         pos: stratpose,
         coord: cordPos[stratpose],
         message: message,
         nodes:nodes,
         safe:safe,
+        enemyPlaceName: enemyPlaceName,
+        safePlaceName: safePlaceName,
+        strategicPosition: strategicPosition,
+        cordPos:cordPos,
     })
 })
     

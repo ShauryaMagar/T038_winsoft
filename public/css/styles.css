@@ -8,11 +8,39 @@
     height: 30px;
     width: 30px;
 }
+body {
+    background-image: url(background.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: 'Montserrat',sans-serif;
+}
+
+#input {
+    padding: 17% 25%;
+    text-align: center;
+}
+
+.key {
+    padding-bottom: 5%;
+}
+
+.form-control {
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.submit-button {
+    margin-top: 5%;
+}
 
 .diagram {
     position: absolute;
     left: 500px;
-    top: 5%;
+    top: 100px;
 }
 
 #B {
@@ -64,4 +92,70 @@
 #J {
     top: 200px;
     left: 400px;
+}
+
+.popup {
+    /* position: relative;
+    display: inline-block; */
+    cursor: pointer;
+    /* -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; */
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
